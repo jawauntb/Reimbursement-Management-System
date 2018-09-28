@@ -1,0 +1,17 @@
+Site/Pages Map
+
+Home: Links{Login, Register, Reimbursements}
+
+Login: Form{Username, Password, Confirm PW, Role/Acct Type, Submit}->redirect
+
+RegisterUser: Form{Username, Password, Confirm PW, Name, Email, Role/Dept(), ID(?), Submit}->redirect
+
+Register Approver: Form{Username, Password, Confirm PW, Name, Email, Role, ID(?), Submit}->redirect
+
+Redirect from register: Links{Home & Login}
+
+Redirect from Login-User: Links{New submission, check status, log out}
+
+Redirect from Login-Approver: Links{approve submission, log out}
+
+Redirect from Approve: Links{approve, escalate, comment}
