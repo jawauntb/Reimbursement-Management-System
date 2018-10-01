@@ -12,13 +12,14 @@ public class Employee {
     private String address;
     private String city;
     private String state;
-    private int zipcode;
     private String role;
-    private String client;
+    private int manager_id;
+    private float total_expense;
+    private float expense_limit;
 
-    public Employee(int e_id, String first_name, String last_name, String username, String password,
-                    String email, String dob, String address, String city, String state,
-                    int zipcode, String role, String client) {
+    public Employee(int e_id, String first_name, String last_name, String username,
+                    String password, String email, String dob, String address, String city,
+                    String state, String role, int manager_id, float total_expense, float expense_limit) {
         this.e_id = e_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -29,9 +30,10 @@ public class Employee {
         this.address = address;
         this.city = city;
         this.state = state;
-        this.zipcode = zipcode;
         this.role = role;
-        this.client = client;
+        this.manager_id = manager_id;
+        this.total_expense = total_expense;
+        this.expense_limit = expense_limit;
     }
 
     public int getE_id() {
@@ -114,14 +116,6 @@ public class Employee {
         this.state = state;
     }
 
-    public int getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(int zipcode) {
-        this.zipcode = zipcode;
-    }
-
     public String getRole() {
         return role;
     }
@@ -130,12 +124,28 @@ public class Employee {
         this.role = role;
     }
 
-    public String getClient() {
-        return client;
+    public int getManager_id() {
+        return manager_id;
     }
 
-    public void setClient(String client) {
-        this.client = client;
+    public void setManager_id(int manager_id) {
+        this.manager_id = manager_id;
+    }
+
+    public float getTotal_expense() {
+        return total_expense;
+    }
+
+    public void setTotal_expense(float total_expense) {
+        this.total_expense = total_expense;
+    }
+
+    public float getExpense_limit() {
+        return expense_limit;
+    }
+
+    public void setExpense_limit(float expense_limit) {
+        this.expense_limit = expense_limit;
     }
 
     @Override
@@ -151,9 +161,12 @@ public class Employee {
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", zipcode=" + zipcode +
                 ", role='" + role + '\'' +
-                ", client='" + client + '\'' +
+                ", manager_id=" + manager_id +
+                ", total_expense=" + total_expense +
+                ", expense_limit=" + expense_limit +
                 '}';
     }
+
+
 }

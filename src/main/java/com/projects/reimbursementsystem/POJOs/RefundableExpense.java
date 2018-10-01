@@ -4,19 +4,29 @@ public class RefundableExpense {
 
     private int rex_id; //expense id
     private int e_id; // employee id
-    private String first_name; // employee first name
-    private String last_name; // employee last name
     private String rexDate; // date of the expense
-    private String expense_period_end_date; //end date of expense period
+    private int expense_period; //end date of expense period
     private String location; //location of expense/purchase
     private String desc; //any further description of the expense
-    private int price; // the total cost of the expense
+    private float price; // the total cost of the expense
     public enum ExpenseCategory {
         Meal, Travel, Housing, Misc;
     } //categories that are acceptable expenses to submit
     private ExpenseCategory category; //which category this expense falls into
     private String expense_admin_comment; //any comments from reimbursement administrator
 
+    public RefundableExpense(int rex_id, int e_id, String rexDate, int expense_period, String location, String desc, float price,
+                             ExpenseCategory category, String expense_admin_comment) {
+        this.rex_id = rex_id;
+        this.e_id = e_id;
+        this.rexDate = rexDate;
+        this.expense_period = expense_period;
+        this.location = location;
+        this.desc = desc;
+        this.price = price;
+        this.category = category;
+        this.expense_admin_comment = expense_admin_comment;
+    }
 
     public int getRex_id() {
         return rex_id;
@@ -34,21 +44,6 @@ public class RefundableExpense {
         this.e_id = e_id;
     }
 
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
 
     public String getRexDate() {
         return rexDate;
@@ -58,12 +53,12 @@ public class RefundableExpense {
         this.rexDate = rexDate;
     }
 
-    public String getExpense_period_end_date() {
-        return expense_period_end_date;
+    public int getExpense_period() {
+        return expense_period;
     }
 
-    public void setExpense_period_end_date(String expense_period_end_date) {
-        this.expense_period_end_date = expense_period_end_date;
+    public void setExpense_period_end_date(int expense_period) {
+        this.expense_period = expense_period;
     }
 
     public String getLocation() {
@@ -82,11 +77,11 @@ public class RefundableExpense {
         this.desc = desc;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -111,10 +106,8 @@ public class RefundableExpense {
         return "RefundableExpense{" +
                 "rex_id=" + rex_id +
                 ", e_id=" + e_id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
                 ", rexDate='" + rexDate + '\'' +
-                ", expense_period_end_date='" + expense_period_end_date + '\'' +
+                ", expense_period='" + expense_period + '\'' +
                 ", location='" + location + '\'' +
                 ", desc='" + desc + '\'' +
                 ", price=" + price +

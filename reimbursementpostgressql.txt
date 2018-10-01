@@ -1,0 +1,119 @@
+-- Table: public."Employee"
+
+-- DROP TABLE public."Employee";
+
+CREATE TABLE public."Employee"
+(
+    e_id bigint NOT NULL DEFAULT nextval('"Employee_e_id_seq"'::regclass),
+    first_name text COLLATE pg_catalog."default",
+    last_name text COLLATE pg_catalog."default",
+    username text COLLATE pg_catalog."default",
+    password text COLLATE pg_catalog."default",
+    email text COLLATE pg_catalog."default",
+    dob text COLLATE pg_catalog."default",
+    address text COLLATE pg_catalog."default",
+    city text COLLATE pg_catalog."default",
+    state text COLLATE pg_catalog."default",
+    role text COLLATE pg_catalog."default",
+    manager_id bigint,
+    total_expense money,
+    expense_limit money,
+    CONSTRAINT "Employee_pkey" PRIMARY KEY (e_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."Employee"
+    OWNER to "WRS";
+
+------------------------------------------------------------------------------------------------------------------------
+
+    -- Table: public."ExpensePeriod"
+
+    -- DROP TABLE public."ExpensePeriod";
+
+    CREATE TABLE public."ExpensePeriod"
+    (
+        expd_id bigint NOT NULL DEFAULT nextval('"ExpensePeriod_expd_id_seq"'::regclass),
+        start_date text COLLATE pg_catalog."default",
+        end_date text COLLATE pg_catalog."default",
+        CONSTRAINT "ExpensePeriod_pkey" PRIMARY KEY (expd_id)
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+    ALTER TABLE public."ExpensePeriod"
+        OWNER to "WRS";
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- Table: public."Manager"
+
+-- DROP TABLE public."Manager";
+
+CREATE TABLE public."Manager"
+(
+    e_id ,
+    first_name ,
+    last_name ,
+    username ,
+    password ,
+    email ,
+    dob ,
+    address ,
+    city ,
+    state ,
+    role ,
+    manager_id ,
+    total_expense ,
+    expense_limit ,
+    m_id bigint NOT NULL DEFAULT nextval('"Manager_m_id_seq"'::regclass),
+    CONSTRAINT manager_id PRIMARY KEY (m_id),
+    CONSTRAINT "employee id" FOREIGN KEY (e_id)
+        REFERENCES public."Employee" (e_id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+)
+    INHERITS (public."Employee")
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."Manager"
+    OWNER to "WRS";
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- DROP TABLE public."RefundableExpense";
+
+CREATE TABLE public."RefundableExpense"
+(
+    rex_id bigint NOT NULL DEFAULT nextval('"RefundableExpense_rex_id_seq"'::regclass),
+    emp_id bigint NOT NULL DEFAULT nextval('"RefundableExpense_emp_id_seq"'::regclass),
+    rex_date text COLLATE pg_catalog."default",
+    location text COLLATE pg_catalog."default",
+    "desc" text COLLATE pg_catalog."default",
+    price money,
+    category text COLLATE pg_catalog."default",
+    expense_admin_comment text COLLATE pg_catalog."default",
+    CONSTRAINT "RefundableExpense_pkey" PRIMARY KEY (rex_id),
+    CONSTRAINT employee_id FOREIGN KEY (emp_id)
+        REFERENCES public."Employee" (e_id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."RefundableExpense"
+    OWNER to "WRS";
+
+
+------------------------------------------------------------------------------------------------------------------------
