@@ -3,7 +3,6 @@ package com.projects.reimbursementsystem.DAOs;
 import java.util.List;
 import com.projects.reimbursementsystem.POJOs.Employee;
 
-
 public interface EmployeeDAO {
 
     public boolean checkEmpty ();
@@ -20,11 +19,10 @@ public interface EmployeeDAO {
 
     public List<Employee> getAllEmployees ();
     public List<Employee> getAllManagers ();
-    public List<Employee> getAllDepartmentHeads ();
 
-    public void reimburseAmount (int price , int e_id);
-    public int getAmount(int e_id);
-    public void refreshAmount();
+    public void refundExpense(float refund, int e_id);
+    public float getTotalExpense(int e_id);
+    public void refreshExpLimit();
 
 
 }

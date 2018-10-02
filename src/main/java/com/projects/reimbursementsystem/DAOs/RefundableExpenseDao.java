@@ -25,7 +25,4 @@ public interface RefundableExpenseDao {
 
     public List<RefundableExpense> getAllRefundableExpense ();
     public List<RefundableExpense> getAllRefundableExpenseUser(int e_id);
-    public List<RefundableExpense> getSuperRefundableExpenseUser(int e_id);
-    public List<RefundableExpense> getDepartmentRefundableExpenseUser(String department);
-
 }

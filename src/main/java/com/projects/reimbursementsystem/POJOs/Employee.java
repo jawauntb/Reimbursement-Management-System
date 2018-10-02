@@ -9,17 +9,13 @@ public class Employee {
     private String password;
     private String email;
     private String dob;
-    private String address;
-    private String city;
-    private String state;
     private String role;
     private int manager_id;
     private float total_expense;
     private float expense_limit;
 
     public Employee(int e_id, String first_name, String last_name, String username,
-                    String password, String email, String dob, String address, String city,
-                    String state, String role, int manager_id, float total_expense, float expense_limit) {
+                    String password, String email, String dob, String role, int manager_id, float total_expense, float expense_limit) {
         this.e_id = e_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -27,9 +23,6 @@ public class Employee {
         this.password = password;
         this.email = email;
         this.dob = dob;
-        this.address = address;
-        this.city = city;
-        this.state = state;
         this.role = role;
         this.manager_id = manager_id;
         this.total_expense = total_expense;
@@ -92,30 +85,6 @@ public class Employee {
         this.dob = dob;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getRole() {
         return role;
     }
@@ -158,9 +127,6 @@ public class Employee {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", dob='" + dob + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
                 ", role='" + role + '\'' +
                 ", manager_id=" + manager_id +
                 ", total_expense=" + total_expense +
